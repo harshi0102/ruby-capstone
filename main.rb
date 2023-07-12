@@ -23,14 +23,12 @@ def menu
   end
 end
 
-def handle_menu_option(selected, app)
+def handle_option(selected, app)
   case selected
   when 1..6
-    puts app.send("list_#{app.genres[selected - 1]}")
-  when 7..9
-    app.send("add_#{app.genres[selected - 1]}")
-  when 10
-    app.add_movie
+    handle_list_option(selected, app)
+  when 7..10
+    handle_add_option(selected, app)
   when 11
     puts 'Thank you for using our app!'
     return false
@@ -40,15 +38,44 @@ def handle_menu_option(selected, app)
   true
 end
 
+def handle_list_option(selected, app)
+  case selected
+  when 1
+    app.list_books
+  when 2
+    app.list_music_albums
+  when 3
+    app.list_games
+  when 4
+    app.list_genres
+  when 5
+    app.list_labels
+  when 6
+    app.list_authors
+  end
+end
+
+def handle_add_option(selected, app)
+  case selected
+  when 7
+    app.add_book
+  when 8
+    app.add_music_album
+  when 9
+    app.add_game
+  when 10
+    app.add_movie
+  end
+end
+
 def console_start
   app = App.new
   app.welcome
 
-  running = true
-  while running
+  loop do
     menu
     selected = gets.chomp.to_i
-    running = handle_menu_option(selected, app)
+    break unless handle_option(selected, app)
   end
 end
 

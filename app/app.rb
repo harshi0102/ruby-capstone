@@ -11,6 +11,6 @@ class App
   end
 
   def welcome
-    puts 'Welcome to our Ruby Capstone!!'
+    puts 'Welcome to our Ruby Capstone!'
   end
 end
