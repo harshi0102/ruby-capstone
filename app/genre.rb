@@ -1,14 +1,13 @@
 class Genre
-  attr_reader :name, :items
+  attr_reader :items, :name
 
-  def initialize(name, id = Random.rand(1..1000))
-    @id = id
+  def initialize(name)
     @name = name
     @items = []
   end
 
   def add_item(item)
-    @items.push(item)
-    item.add_genre(self)
+    item.add_genre(self) if item.respond_to?(:add_genre)
+    @items << item
   end
 end
