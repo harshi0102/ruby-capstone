@@ -1,17 +1,19 @@
 class Item
-  attr_accessor :published_date, :name, :genre
-  attr_reader :id
+  attr_accessor :published_date, :name
+  attr_reader :id, :archived, :genre
 
-  def initialize(name, published_date, archived: false, id: rand(1..1000))
+  # rubocop:disable Style/OptionalBooleanParameter
+  def initialize(name, published_date, archived = false, id = Random.rand(1..1000))
     @id = id
     @name = name
     @published_date = published_date
     @archived = archived
   end
+  # rubocop:enable Style/OptionalBooleanParameter
 
-  def add_genre(genre)
+  def add_genre=(genre)
     @genre = genre
-    genre.add_item(self)
+    genre.items.push(self) unless genre.items.include?(self)
   end
 
   def can_be_archived?
@@ -20,9 +22,5 @@ class Item
 
   def move_to_archive
     @archived = true if can_be_archived?
-  end
-
-  def archived?
-    @archived
   end
 end
