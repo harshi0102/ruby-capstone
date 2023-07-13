@@ -25,9 +25,9 @@
     "cover_state" : "bad"
   },
   {
-    "name" : "harshika",
-    "publisher" : "harshika",
-    "published_date" : "0102000",
-    "cover_state" : "harshika"
+    "name" : "My book",
+    "publisher" : "Cool ",
+    "published_date" : "2022-01-01",
+    "cover_state" : "bad"
   }
 ]
