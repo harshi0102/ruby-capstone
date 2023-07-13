@@ -6,10 +6,12 @@ module Console
     options = [
       'List all books',
       'List all music albums',
-      'List of games',
+      'List all games',
       'List all genres',
       'List all labels',
       'List all authors',
+      'List all movies',
+      'List all sources',
       'Add a book',
       'Add a music album',
       'Add a movie',
@@ -22,10 +24,9 @@ module Console
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
-
   def console_start
-    while menu
+    loop do
+      menu
       selected = gets.chomp.to_i
       case selected
       when 1
@@ -33,28 +34,38 @@ module Console
       when 2
         list_music_albums
       when 3
-        puts 'list_all_games'
+        list_games
       when 4
         list_genres
       when 5
-        puts 'list_labels'
+        list_labels
       when 6
-        puts 'list_all_authors'
+        list_authors
       when 7
-        add_book
+        list_movies
       when 8
-        add_music_album
+        list_sources
       when 9
-        puts 'add_movie'
+        add_book
       when 10
-        puts 'add_game'
+        add_music_album
       when 11
+        add_movie
+      when 12
+        add_game
+      when 13
         puts 'Thank you for using our app!'
-        break
+        exit
       else
         puts 'Please choose an appropriate number'
       end
+
+      puts "\n"
     end
   end
-  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
+
+  def list_sources
+    puts 'List of sources:'
+    @sources.each { |source| puts source }
+  end
 end

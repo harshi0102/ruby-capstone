@@ -8,14 +8,28 @@ require 'json'
 require_relative '../data/genre_crud'
 require_relative '../data/music_album_crud'
 require_relative '../data/book_crud'
+require_relative '../data/label_crud'
+require_relative '../data/source_crud'
+
+require_relative '../classes/game_list'
+require_relative '../data/games_crud'
+
+require_relative '../classes/authors_list'
+require_relative '../data/authors_crud'
+
+require_relative '../classes/movies_list'
+require_relative '../data/movies_crud'
 
 class App
   include Console
   include MusicList
   include Booklist
+  include GamesList
+  include AuthorsList
+  include MoviesList
 
-  attr_accessor :books, :music_albums, :games, :genres,
-                :lables, :authors
+  attr_accessor :books, :music_albums, :games, :authors, :genres,
+                :labels, :authors_data, :games_data, :movies, :movies_data, :sources
 
   def initialize
     @books = []
@@ -24,12 +38,30 @@ class App
     @genres = []
     @labels = []
     @authors = []
+    @movies = []
+    @sources = []
   end
 
   def run
-    puts 'This method is for fetching data from json files'
     @music_albums = load_music_albums
     @genres = load_genres
     @books = populate_books
+    @labels = populate_labels
+    @games = load_games
+    @authors = load_authors
+    @movies = load_movies
+    @sources = load_sources
   end
+
+  def list_sources
+    puts 'List of sources:'
+    @sources.each { |source| puts source }
+  end
+end
+
+app = App.new
+app.run
+
+loop do
+  app.console_start
 end
