@@ -23,5 +23,11 @@
     "publisher" : "Tommy Egan",
     "published_date" : "2000-12-09",
     "cover_state" : "bad"
+  },
+  {
+    "name" : "harshika",
+    "publisher" : "harshika",
+    "published_date" : "0102000",
+    "cover_state" : "harshika"
   }
 ]
