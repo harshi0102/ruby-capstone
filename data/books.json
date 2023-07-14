@@ -34,5 +34,11 @@
     "publisher" : "harsi",
     "published_date" : "2000",
     "cover_state" : "harshi"
+  },
+  {
+    "name" : "harshika",
+    "publisher" : "mike",
+    "published_date" : "2000",
+    "cover_state" : "harshika"
   }
 ]
