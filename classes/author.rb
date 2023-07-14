@@ -2,8 +2,7 @@ require 'json'
 require_relative 'helper'
 
 class Author
-  attr_accessor :id, :first_name, :last_name
-  attr_reader :items
+  attr_accessor :id, :first_name, :last_name, :items
 
   include Help
 
@@ -24,6 +23,6 @@ class Author
 
   def add_item(item)
     @items << item
-    item.add_author self
+    item.author = self
   end
 end

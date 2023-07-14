@@ -15,7 +15,7 @@ describe Genre do
     it 'should add an object to items array' do
       music_albums = double('MusicAlbum', name: 'drivers license (2021)')
 
-      allow(music_albums).to receive(:add_genre=) { @genre }
+      allow(music_albums).to receive(:genre=) { @genre }
 
       @genre.add_item(music_albums)
       genre_items = @genre.items

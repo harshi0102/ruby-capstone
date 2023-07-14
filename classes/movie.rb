@@ -19,6 +19,10 @@ class Movie < Item
   def initialize(movie_name, published_date)
     @movie_name = movie_name
     @published_date = published_date
-    super(id, published_date)
+    super(movie_name, published_date)
+  end
+
+  def can_be_archived?(silent: false)
+    super || silent
   end
 end

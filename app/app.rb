@@ -59,6 +59,24 @@ class App
   end
 end
 
+def list_labels
+  puts 'List of labels:'
+  @labels.each_with_index do |label, index|
+    puts "#{index + 1} Name: #{label.title}, Color: #{label.color}"
+  end
+end
+
+def populate_labels
+  @labels = load_labels
+end
+
+def list_games
+  puts 'List of games:'
+  @games.each do |game|
+    puts "Name: #{game.name}, Genre: #{game.genre.name}, Label: #{game.label.title}"
+  end
+end
+
 app = App.new
 app.run
 
