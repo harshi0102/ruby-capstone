@@ -18,7 +18,6 @@ module MusicList
     end
     puts ''
   end
-  # rubocop:disable Metrics/MethodLength
 
   def add_music_album
     print 'Album Name: '
@@ -49,7 +48,6 @@ module MusicList
     save_music_albums(@music_albums, music_album_add_genre)
     puts 'Created a Music Album successfully!'
   end
-  # rubocop:enable Metrics/MethodLength
 
   def list_genres
     if @genres.empty?

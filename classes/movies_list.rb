@@ -3,15 +3,12 @@ require_relative '../data/movies_crud'
 
 module MoviesList
   def list_movies
-    if @movies.empty?
-      puts 'You don\'t have any movies.'
-    else
-      @movies.each_with_index do |movie, index|
-        puts "#{index}, movie_name: #{movie.movie_name}, published_date: #{movie.published_date}"
-        puts ''
-      end
+    puts 'List of movies:'
+    @movies.each_with_index do |movie, index|
+      movie_name = movie['movie_name']
+      published_date = movie['published_date']
+      puts "#{index}, movie_name: #{movie_name}, published_date: #{published_date}"
     end
-    puts ''
   end
 
   def add_movie

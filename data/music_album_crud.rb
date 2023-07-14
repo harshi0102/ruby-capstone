@@ -15,7 +15,6 @@ def save_music_albums(music_albums, music_album_add_genre)
   File.write('./data/music.json', JSON.generate(music_albums_data))
 end
 
-# rubocop:disable Metrics/MethodLength
 def load_music_albums
   music_album_data = []
   return unless File.exist?('./data/music.json')
@@ -40,5 +39,4 @@ def load_music_albums
     end
   end
   music_album_data
-  # rubocop:enable Metrics/MethodLength
 end
